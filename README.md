@@ -4,12 +4,9 @@
 情感测试题，使用vuejs2.0 + vue-cli3.0 + element-ui 开发，主要功能有答题、性别选择、日期选择、结果。
 
 #### 软件架构
-软件架构说明
-Vue.js 2.5 	基础语法，组件
-Vue-cli 3.0 Vue 官方脚手架
-element-ui	某些地方的ui布局
-axios 		后台数据获取
-better-scroll 项目整体滑动
+1. 结构：html + Element-ui + better-scroll
+2. 样式：css + Stylus
+3. 表现：Vue.js 2.5 + Vue-cli 3.0 + axios
 
 #### 安装教程
 
