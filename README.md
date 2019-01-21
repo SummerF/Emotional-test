@@ -1,4 +1,4 @@
-# airanTest
+# 情感测试题
 
 #### 项目介绍
 airan测试项目
@@ -8,7 +8,7 @@ airan测试项目
 Vue.js 2.5 	基础语法，组件
 Vue-cli 3.0 Vue 官方脚手架
 element-ui	某些地方的ui布局
-axios 		后台数据获取 + 本地模拟后台数据获取
+axios 		后台数据获取
 better-scroll 项目整体滑动
 
 #### 安装教程
