@@ -19,5 +19,5 @@ export default {
 #app
 	max-width: 640px
 	width: 100%
-	margin: 0 auto
+	margin: 0 auto  
 </style>

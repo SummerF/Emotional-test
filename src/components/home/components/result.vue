@@ -4,7 +4,7 @@
 			<h2>测试结果</h2>
 			<p>你的测试结果是：<strong>{{ color }}</strong></p>
 		</div>
-		<div class="result-list" v-for="(dataList, index) of resultDate">
+		<div class="result-list" v-for="(dataList, index) of resultDate" :key="index">
 			<div class="result-content">
 				<h2 class="content-title">{{dataList.advantage.title}}</h2>
 				<div class="content-text border-top">

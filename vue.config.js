@@ -1,17 +1,15 @@
-const path = require('path');
+const path = require("path");
 
-function resolve (dir) {
-  return path.join(__dirname, dir)
+function resolve(dir) {
+  return path.join(__dirname, dir);
 }
 
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production'
-    ? '252534-ceshi/'
-    : './',
+  baseUrl: process.env.NODE_ENV === "production" ? "./" : "./",
 
-  outputDir: 'dist',
+  outputDir: "dist",
 
-  assetsDir: 'static',
+  assetsDir: "static",
 
   filenameHashing: true,
 
@@ -21,23 +19,23 @@ module.exports = {
   pages: {
     index: {
       // page 的入口
-      entry: 'src/main.js',
+      entry: "src/main.js",
       // 模板来源
-      template: 'public/index.html',
+      template: "public/index.html",
       // 在 dist/index.html 的输出
-      filename: 'index.html',
+      filename: "index.html",
       // 当使用 title 选项时，
       // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-      title: 'Index Page',
+      title: "Index Page",
       // 在这个页面中包含的块，默认情况下会包含
       // 提取出来的通用 chunk 和 vendor chunk。
-      chunks: ['chunk-vendors', 'chunk-common', 'index']
+      chunks: ["chunk-vendors", "chunk-common", "index"]
     },
     // 当使用只有入口的字符串格式时，
     // 模板会被推导为 `public/subpage.html`
     // 并且如果找不到的话，就回退到 `public/index.html`。
     // 输出文件名会被推导为 `subpage.html`。
-    subpage: 'src/main.js'
+    subpage: "src/main.js"
   },
 
   // eslint-loader 是否在保存的时候检查
@@ -56,29 +54,26 @@ module.exports = {
   // corsUseCredentials: false,
   // webpack 配置，键值对象时会合并配置，为方法时会改写配置
   // https://cli.vuejs.org/guide/webpack.html#simple-configuration
-  configureWebpack: (config) => {
-
-  },
+  // eslint-disable-next-line no-unused-vars
+  configureWebpack: config => {},
 
   // webpack 链接 API，用于生成和修改 webapck 配置
   // https://github.com/mozilla-neutrino/webpack-chain
-  chainWebpack: (config) => {
+  chainWebpack: config => {
     // 因为是多页面，所以取消 chunks，每个页面只对应一个单独的 JS / CSS
-    config.optimization
-      .splitChunks({
-        cacheGroups: {}
-      });
-     //配置文件夹别名
-     config.resolve.alias
-      .set('@', resolve('src'))
-      .set('assets',resolve('src/assets'))
+    config.optimization.splitChunks({
+      cacheGroups: {}
+    });
+    //配置文件夹别名
+    config.resolve.alias
+      .set("@", resolve("src"))
+      .set("assets", resolve("src/assets"));
 
     // 'src/lib' 目录下为外部库文件，不参与 eslint 检测
     config.module
-      .rule('eslint')
-      .exclude
-      .add('/Users/maybexia/Downloads/FE/community_built-in/src/lib')
-      .end()
+      .rule("eslint")
+      .exclude.add("/Users/maybexia/Downloads/FE/community_built-in/src/lib")
+      .end();
   },
 
   // 配置高于chainWebpack中关于 css loader 的配置
@@ -118,24 +113,24 @@ module.exports = {
     hotOnly: false,
 
     proxy: {
-      '/api': {
-　　　　　　　//要访问的跨域的api的域名
-        target: 'http://localhost:80',
+      "/api": {
+        //要访问的跨域的api的域名
+        target: "http://localhost:80",
         ws: true,
         changOrigin: true,
         cacheBusting: true,
         cssSourceMap: true,
         pathRewrite: {
-            '^/api': 'public/api'
+          "^/api": "public/api"
         }
       }
     },
 
-    before: app => {
-    }
+    // eslint-disable-next-line no-unused-vars
+    before: app => {}
   },
   // 构建时开启多进程处理 babel 编译
-  parallel: require('os').cpus().length > 1,
+  parallel: require("os").cpus().length > 1,
 
   // https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   pwa: {},
